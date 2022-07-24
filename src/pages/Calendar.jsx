@@ -17,8 +17,25 @@ import { DatePickerComponent } from "@syncfusion/ej2-react-calendars";
 import { scheduleData } from "../data/dummy";
 import { Header } from "../components";
 
-const Calendar = () => {
-  return <div>Calendar</div>;
+// eslint-disable-next-line react/destructuring-assignment
+const PropertyPane = (props) => <div className="mt-5">{props.children}</div>;
+
+const Scheduler = () => {
+  const [scheduleObj, setScheduleObj] = useState();
+
+  const change = (args) => {
+    scheduleObj.selectedDate = args.value;
+    scheduleObj.dataBind();
+  };
+
+  const onDragStart = (arg) => {
+    // eslint-disable-next-line no-param-reassign
+    arg.navigation.enable = true;
+  };
+
+  return (
+    <div className="m-2 md:m-10 mt-24 p-2 md:p-10 bg-white rounded-3xl"></div>
+  );
 };
 
-export default Calendar;
+export default Scheduler;
